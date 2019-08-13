@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: atbot
+Build-Jdk: 12.0.2
+Implementation-Title: GrpcBlockChainAtb
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.atb.grpc.ninja
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/GrpcBlockChainAtb
+Created-By: Maven Integration for Eclipse
+
