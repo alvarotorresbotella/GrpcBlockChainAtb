@@ -19,6 +19,11 @@
     <grpc-spring-boot-starter.version>3.0.0</grpc-spring-boot-starter.version>
     <os-maven-plugin.version>1.6.1</os-maven-plugin.version>
     <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+    <java.version>1.8</java.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+	<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+	<sonar.language>java</sonar.language>
   </properties>
   <dependencies>
     <dependency>
@@ -39,6 +44,12 @@
       <artifactId>grpc-spring-boot-starter</artifactId>
       <version>${grpc-spring-boot-starter.version}</version>
     </dependency>
+    <dependency>
+			      <groupId>junit</groupId>
+			      <artifactId>junit</artifactId>
+			      <version>4.12</version>
+			      <scope>test</scope>
+    		</dependency>
   </dependencies>
   <build>
     <extensions>
@@ -71,6 +82,26 @@
           </execution>
         </executions>
       </plugin>
+      	   <plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+		          <artifactId>maven-surefire-plugin</artifactId>
+		          <version>2.18.1</version>
+		       </plugin>
+	       	   <plugin>
+		          <groupId>org.jacoco</groupId>
+		          <artifactId>jacoco-maven-plugin</artifactId>
+		          <version>0.7.9</version>
+		          <executions>
+		          <execution>
+		             <goals>
+		                     <goal>prepare-agent</goal>
+		             </goals>
+		              </execution>
+		         </executions>
+		         <configuration>
+		         <destFile>${sonar.jacoco.reportPath}</destFile>
+		         </configuration>
+	       </plugin>
     </plugins>
   </build>
 </project>
